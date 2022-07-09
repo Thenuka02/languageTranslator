@@ -9,10 +9,6 @@
         "btnSingnIn" : "SIGN IN",
         "labelAC": "Don't have an account ?",
         "btnSignUp" : "CREATE AN ACCOUNT"
-    },
-    "signIn2": {
-        "placeholder1": "Enter your username",
-        "label1": "User Name"
-        
     }
+    
 }

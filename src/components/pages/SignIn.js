@@ -123,12 +123,7 @@ const SignIn = () =>{
                  {t('signIn.btnSignUp')} 
                 
               </Button>
-              {/* <div>
-              <button onClick={() => i18n.changeLanguage('ta')}>ta</button>
-              <button onClick={() => i18n.changeLanguage('en')}>en</button>
-              </div> */}
-    
-   
+             
     <div>
       <Button
         id="fade-button"
