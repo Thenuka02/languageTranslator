@@ -1,8 +1,7 @@
 import {BrowserRouter  ,Routes, Route} from "react-router-dom";
-import English from "../components/pages/English";
-import French from "../components/pages/French";
 import Home from "../components/pages/Home";
 import Language from "../components/pages/Language";
+import SignIn from "../components/pages/SignIn";
 
 
 
@@ -13,9 +12,8 @@ const AppRouter = () =>{
           
             <Routes>
                 <Route path="/" element={<Home />}/>
-                <Route path="/english" element={<English />} />
-                <Route path="/french" element={<French />} />
-                <Route path="/language" element={<Language />} />
+                <Route path="/signIn" element={<SignIn />}/>
+                {/* <Route path="/language" element={<Language />} /> */}
             </Routes>
            
         </BrowserRouter>

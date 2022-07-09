@@ -106,20 +106,18 @@ import Language from "../pages/Language";
              <Link to="/" className={classes.link}>
                 Home
               </Link>
-              <Link to="/english" className={classes.link}>
-                English
+              <Link to="/signIn" className={classes.link}>
+                SignIn
               </Link>  
-              <Link to="/french" className={classes.link}>
-                French
-              </Link>  
+              
               <Link to="/language" className={classes.linkBtn}>
              
          
               </Link> 
-              <Language />
+              {/* <Language /> */}
             </div>
         </Toolbar>
-  
+      
       </div>
     );
   }

@@ -1,42 +1,64 @@
-// import i18n from "i18next";
-// import { initReactI18next } from "react-i18next";
+// import i18n from 'i18next';
+// import { initReactI18next } from 'react-i18next';
+// import LanguageDetector from 'i18next-browser-languagedetector';
 
-// // the translations
-// // (tip move them in a JSON file and import them,
-// // or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
-// const resources = {
-//   en: {
-//     translation: {
-//       "Welcome to React": "Welcome to React and react-i18next"
-//     }
-//   },
-//   fr: {
-//     translation: {
-//       "Welcome to React": "Bienvenue à React et react-i18next"
-//     }
-//   }
-// };
 
 // i18n
-//   .use(initReactI18next) // passes i18n down to react-i18next
+  
+//   .use(LanguageDetector)
+  
+//   .use(initReactI18next)
+  
 //   .init({
-//     resources,
-//     lng: "en", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
-//     // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
-//     // if you're using a language detector, do not define the lng option
-
+//     debug: true,
+//     fallbackLng: 'en',
 //     interpolation: {
-//       escapeValue: false // react already safes from xss
+//       escapeValue: false, 
+//     },
+//     resources: {
+//       en: {
+//         translation: {
+//           description: {
+//             part1: "Hello, welcome to Home page!!",
+           
+//           }
+//         }
+//       },
+//       fr: {
+//         translation: {
+//           description: {
+//             part1: "Bonjour, bienvenue sur la page d'accueil!!"
+           
+//           }
+//         }
+//       },
+//       ta: {
+//         translation: {
+//           description: {
+//             part1: "வணக்கம், முகப்புப் பக்கத்திற்கு வரவேற்கிறோம்!!",
+           
+//           }
+//         }
+//       },
+//       cn: {
+//         translation: {
+//           description: {
+//             part1: "您好，歡迎來到首頁！！",
+           
+//           }
+//         }
+//       },
 //     }
 //   });
 
-//   export default i18n;
-
-
+// export default i18n;
 
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import languageTranslation_en from "./translations/en/languageTranslation.json";
+import languageTranslation_fr from "./translations/fr/languageTranslation.json";
+import languageTranslation_ta from "./translations/ta/languageTranslation.json";
 
 i18n
   
@@ -45,37 +67,30 @@ i18n
   .use(initReactI18next)
   
   .init({
-    debug: true,
-    fallbackLng: 'en',
+    lng: 'en',     
     interpolation: {
       escapeValue: false, 
     },
     resources: {
       en: {
-        translation: {
-          description: {
-            part1: "Hello, welcome to Home page!!",
+       
+           languageTranslation: languageTranslation_en
            
-          }
-        }
-      },
+          },
+        
       fr: {
-        translation: {
-          description: {
-            part1: "Bonjour, bienvenue sur la page d'accueil!!"
-           
-          }
-        }
-      },
-      th: {
-        translation: {
-          description: {
-            part1: "வணக்கம், முகப்புப் பக்கத்திற்கு வரவேற்கிறோம்!!",
-           
-          }
-        }
-      }
+        
+          languageTranslation: languageTranslation_fr
+            
+          },
+      ta: {
+        
+          languageTranslation: languageTranslation_ta
+                
+          },    
+      
     }
+  
   });
 
 export default i18n;

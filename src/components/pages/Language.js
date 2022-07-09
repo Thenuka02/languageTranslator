@@ -1,18 +1,16 @@
 import React from "react";
 import { useTranslation, Trans } from 'react-i18next';
-
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { makeStyles } from '@material-ui/core';
-import Header from "../layout/Header";
-
-
+import { Link } from "react-router-dom";
 const lngs = {
     en: { languageName: 'English' },
-    th: { languageName: 'Tamil' },
+    ta: { languageName: 'Tamil' },
     fr: { languageName: 'French' },
+    cn: { languageName: 'Chinese'}
   };
 
   const useStyles = makeStyles({
@@ -25,8 +23,8 @@ const lngs = {
     },
   });
 const Language = () =>{
-  const { i18n } = useTranslation();
-
+  // const { i18n } = useTranslation();
+  const [t, i18n] = useTranslation('languageTranslation');
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -39,7 +37,6 @@ const Language = () =>{
   };
     return (
         <div >
-            {/* <div> <Header /></div> */}
         <div  className={classes.btn}>   
         <Button
         id="demo-customized-button"
@@ -65,15 +62,13 @@ const Language = () =>{
           'color': 'white',
         }}
       >
-        <div>
+        {/* <div>
               {Object.keys(lngs).map((lng) => (
-                <MenuItem key={lng} onClick={ () => {i18n.changeLanguage(lng); handleClose();}}> {lngs[lng].languageName}</MenuItem>
-               
+                <MenuItem key={lng} onClick={ () => {i18n.changeLanguage(lng); handleClose();}}> {lngs[lng].languageName}
+                 
+                </MenuItem>  
               ))}
-            </div> 
-             
-       
-       
+            </div>  */}
       </Menu>
             
             <p>
@@ -81,8 +76,14 @@ const Language = () =>{
               Hello, welcome to Home page!!
               </Trans>
             </p>
-           
+            <div>
+        <h1>{t('welcome.title', {framework:'React'})}</h1>
+        <button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+        <button onClick={() => i18n.changeLanguage('en')}>en</button>
+    </div>
         </div>
+
+        
       );
 }
 
