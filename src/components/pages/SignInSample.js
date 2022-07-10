@@ -16,35 +16,39 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import { useFormik } from "formik";
-import * as yup from 'yup';
+import { validator } from "../../form/Validator";
+import useForm from "../../form/useForm";
+
 const backgroundImage = require('../../assets/image_agri.jpg');
 
 const theme = createTheme();
 
+const SignInSample = () =>{
+  const initState = {
+    userName: "",
+    password: "",
+    
+  };
+  const submit = (event) => {
+    event.preventDefault();
+    console.log(" Submited");
+  };
 
-const validationSchema = yup.object({
-  userName: yup
-    .string('Enter your user name')
-    .required('User name is required'),
-  password: yup
-    .string('Enter your password')
-    .min(8, 'Password should be of minimum 8 characters length')
-    .required('Password is required'),
-});
-
-  
-const SignIn = () =>{
-  const formik = useFormik({
-    initialValues: {
-      userName: '',
-      password: '',
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
+  const {
+    handleChange,
+    handleSubmit,
+    handleBlur,
+    state,
+    errors,
+  } = useForm({
+    initState,
+    callback: submit,
+    validator
   });
+
+  let isValidForm =
+    Object.values(errors).filter(error => typeof error !== "undefined")
+      .length === 0;
 
   const [t, i18n] = useTranslation('languageTranslation');
   
@@ -71,7 +75,7 @@ const SignIn = () =>{
         />
         <Grid item xs={12}  sm={8} md={5} component={Paper} elevation={6} square>
       
-      
+       <form onSubmit={handleSubmit}>
           <Box
             sx={{
               my: 8,
@@ -87,10 +91,7 @@ const SignIn = () =>{
             <HomeIcon  sx={{ ml: 50, }}/> 
             </Link>
             </div>
-            
-            <form onSubmit={formik.handleSubmit}>
-          
-               
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                 {/* User Name */}
                 {t('signIn.labelUser')}
               <TextField
@@ -102,13 +103,12 @@ const SignIn = () =>{
                 name="userName"
                 autoComplete="name"
                 autoFocus
-                value={formik.values.userName}
-                onChange={formik.handleChange}
-                error={formik.touched.userName && Boolean(formik.errors.userName)}
-                helperText={formik.touched.userName && formik.errors.userName}
-               
+                onChange={handleChange}
+                error={errors.userName ? true : false}
+                helperText={errors.userName}
+                onBlur={handleBlur}
+                defaultValue={state.userName}
               />
-               
                {/* Password */}
                {t('signIn.labelPw')}
               <TextField
@@ -119,13 +119,13 @@ const SignIn = () =>{
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                error={formik.touched.password && Boolean(formik.errors.password)}
-                helperText={formik.touched.password && formik.errors.password}
+                defaultValue={state.password}
+                onChange={handleChange}
+                error={errors.password ? true : false}
+                helperText={errors.password}
+                onBlur={handleBlur}
               />
-                  
+
                 <FormLabel>
                 {t('signIn.labelRestPw')}
                   <Link  to="/" variant="body2">
@@ -137,7 +137,7 @@ const SignIn = () =>{
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-               // disabled={!isValid}
+                disabled={!isValidForm}
               >
                 {t('signIn.btnSingnIn')} 
               </Button>
@@ -170,17 +170,14 @@ const SignIn = () =>{
               </RadioGroup>
               </FormControl>
               </div>
-          
-            </form>
-          
+            </Box>
           </Box>
-         
+          </form>
         </Grid>
-        
       </Grid>
       
     </ThemeProvider>
   );
 }
 
-export default SignIn;
+export default SignInSample;
