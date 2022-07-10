@@ -1,107 +1,74 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-// import Language from "../pages/Language";
+
 import {
     Toolbar,
     CssBaseline,
-    Typography,
     makeStyles,
-    useTheme,
-    useMediaQuery,
-    Button,
-  } from "@material-ui/core";
-import Language from "../pages/Language";
   
-  const useStyles = makeStyles((theme) => ({
+      } from "@material-ui/core";
+
+  const useStyles = makeStyles(() => ({
   
     typography: {
       fontFamily: 'Poppins',
     },
     
     header: {
-      overflowX:"none",
-      display: 'inline',
-      textOverflow: "ellipsis",
-      whiteSpace: "nowrap",
-      height: "120px",
-      width: "1440px",
+      // overflowX:"none",
+      // display: 'inline',
+      // textOverflow: "ellipsis",
+      // whiteSpace: "nowrap",
+      height: "60px",
+      width: "1100px",
       alignItems: "center",
       justifyContent: "center",
-      [theme.breakpoints.up('sm','lg')]: {
-        width: '1440px',
-        height: "812px",
-        display: 'inline',
-      },
+      // [theme.breakpoints.up('sm','lg')]: {
+      //   width: '1440px',
+      //   height: "812px",
+      //   display: 'inline',
+      // },
     },
-    
+    header2:{
+      backgroundColor: "#D63031",
+      width: '1200px',
+      marginLeft: 100,
+    },
     navlinks: {
       overflow: "hidden",
-      paddingTop:"46px",
+      paddingTop:"10px",
       display: "flex",
       alignItems: 'center',
       justifyContent: 'center',
       fontSize: "18px",
-      paddingLeft: "491px",
-    
-      [theme.breakpoints.up('sm', 'md','lg')]: {
-         display: "flex",
-      },
+      paddingLeft: "700px",
+      // [theme.breakpoints.up('sm', 'md','lg')]: {
+      //    display: "flex",
+      // },
     },
 
     link: {
       textDecoration: "none",
-      color: "blue",
       fontSize: "18px",
       fontFamily: "Poppins,Light",
       textAlign: "left",
       marginLeft: "60px",
-    },
-
-    btn: {
-      width: "200px",
-      height: "44px",
-      backgroundColor: '#D63031',
       color: "#FFFFFF",
-      textalign: "center",
-      textDecoration: "none",
-      alignItems: "center",
-      fontSize: "18px",
-      fontFamily: "Poppins,Regular ",
-      padding: "13px 40px",
-      display: "flex",
-      marginLeft: "111px",
-      // marginLeft: theme.spacing(16),
-      "&:hover": {
-        //borderBottom: "4px solid #3553C8",
-        textDecoration: "none",
-       
+      '&:hover': {
+        color: 'black',
       },
-     
-     
     },
-    
-    linkBtn: {
-      marginLeft: "35px",
-      paddingRight: "70px",
-      marginRight: "70px",
-      textDecoration: "none",
-      color: "#1F1F1F",
-      fontSize: "18px",
-      fontFamily: "Poppins",
-      
-    
-    }
   }));
   
   const Header =() =>{
     const classes = useStyles();
-    const theme = useTheme();
+    //const theme = useTheme();
     return (
       
         <div className={classes.header}>
          
         <CssBaseline />
-        <Toolbar  >
+        <Toolbar  className={classes.header2}>
             <div className={classes.navlinks}>
              <Link to="/" className={classes.link}>
                 Home
@@ -109,12 +76,9 @@ import Language from "../pages/Language";
               <Link to="/signIn" className={classes.link}>
                 SignIn
               </Link>  
-              
-              <Link to="/language" className={classes.linkBtn}>
-             
-         
-              </Link> 
-              {/* <Language /> */}
+              <Link to="/signUp" className={classes.link}>
+                SignUp
+              </Link>  
             </div>
         </Toolbar>
       
