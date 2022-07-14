@@ -7,15 +7,15 @@ import { makeStyles } from "@material-ui/core";
 const backgroundImage = require('../../assets/image_Bg.jpg');
 
 
-const styles = {
-  paperContainer: {
-      position: 'absolute',
-      fontSize: "32px",
-      color: '#FFFFFF', 
-      top: "200px",
-      left: "300px",
-  }
-};
+// const styles = {
+//   paperContainer: {
+//       position: 'fixed',
+//       fontSize: "32px",
+//       color: '#FFFFFF', 
+//       top: "200px",
+//       left: "300px",
+//   }
+// };
 const useStyles = makeStyles((theme) => ({
   
   imageBackground: {
@@ -24,9 +24,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    //width: '100%',
+    minWidth: '100%',
+    minHeight: "100%",
     overflow: 'hidden',
-    position: 'relative',
+    position: 'fixed',
           display: 'flex',
           alignItems: 'center',
           [theme.breakpoints.up('sm')]: {
@@ -35,15 +36,26 @@ const useStyles = makeStyles((theme) => ({
             maxHeight: 1300,
           },
   },
+  paperContainer: {
+    position: 'fixed',
+    fontSize: "32px",
+    color: '#FFFFFF', 
+    // top: "200px",
+    // left: "300px",
+    display: 'flex',
+    alignItems: 'center',
+   
+},
 
+  
 }));
 const Home = () =>{
   const classes = useStyles();
     return (
         <div >
           <div> <Header /></div>
-          <h1>Welcome to Home Page</h1> 
-        {/* <Container  className={classes.imageBackground}>
+          {/* <h1>Welcome to Home Page</h1>  */}
+          <Container  className={classes.imageBackground}> 
          
         <Box 
         
@@ -61,11 +73,11 @@ const Home = () =>{
           
         // }}>
         >
-            <div style={styles.paperContainer}>
+            {/* <div  className={classes.paperContainer}>
             <h1>Welcome to Home Page</h1> 
-            </div>
+            </div> */}
         </Box>
-        </Container> */}
+        </Container>
       
         </div>
       );
