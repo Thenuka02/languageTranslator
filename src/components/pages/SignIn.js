@@ -18,10 +18,32 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import { useFormik } from "formik";
 import * as yup from 'yup';
+import { makeStyles } from "@material-ui/core/styles";
+
 const backgroundImage = require('../../assets/image_agri.jpg');
 
 const theme = createTheme();
 
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      minWidth: 32,
+      paddingLeft: 8,
+      paddingRight: 8,
+      "& .MuiButton-startIcon": {
+         margin: 0
+        
+      }
+    }
+  },
+  buttonText: {
+    underline: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    }
+  }
+}));
 
 const validationSchema = yup.object({
   userName: yup
@@ -33,8 +55,11 @@ const validationSchema = yup.object({
     .required('Password is required'),
 });
 
-  
+
+
 const SignIn = () =>{
+  const classes = useStyles();
+
   const formik = useFormik({
     initialValues: {
       userName: '',
@@ -82,11 +107,17 @@ const SignIn = () =>{
               alignItems: 'center',
             }}
           >
-            <div>
-            <Link to="/">
-            <HomeIcon  sx={{ ml: 50, }}/> 
+            <Link to="/" >
+            <Button
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+            startIcon={<HomeIcon />}
+            sx={{ mt: 3, ml: 1 }}
+            >
+            <span className={classes.buttonText} >Home</span>
+            </Button>
             </Link>
-            </div>
             
             <form onSubmit={formik.handleSubmit}>
           

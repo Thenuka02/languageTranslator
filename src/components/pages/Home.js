@@ -16,14 +16,24 @@ const styles = {
       left: "300px",
   }
 };
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   
   imageBackground: {
+    backgroundImage: `url(${backgroundImage})`,
     height: '100vh' ,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+    //width: '100%',
+    overflow: 'hidden',
     position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          [theme.breakpoints.up('sm')]: {
+            height: '80vh',
+            minHeight: 500,
+            maxHeight: 1300,
+          },
   },
 
 }));
@@ -32,23 +42,31 @@ const Home = () =>{
     return (
         <div >
           <div> <Header /></div>
+          <h1>Welcome to Home Page</h1> 
+        {/* <Container  className={classes.imageBackground}>
          
-        <Container  className={classes.imageBackground}>
         <Box 
-         sx={{   
-          backgroundImage: `url(${backgroundImage})`,
-          height: '100vh' ,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          width:"1200px",
-          position: 'relative',
-          overflow: "hidden",
-        }}>
+        
+        //  sx={{   
+        //   backgroundImage: `url(${backgroundImage})`,
+        //   height: '100vh' ,
+        //   backgroundRepeat: 'no-repeat',
+        //   backgroundSize: 'cover',
+        //   width:"1440px",
+        //   position: 'relative',
+        //   left: 0,
+        //   right: 0,
+        //   top: 0,
+        //   bottom: 0,
+          
+        // }}>
+        >
             <div style={styles.paperContainer}>
             <h1>Welcome to Home Page</h1> 
             </div>
         </Box>
-        </Container>
+        </Container> */}
+      
         </div>
       );
 }
