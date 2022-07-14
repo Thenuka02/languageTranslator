@@ -37,13 +37,16 @@ const useStyles = makeStyles((theme) => ({
           },
   },
   paperContainer: {
-    position: 'fixed',
-    fontSize: "32px",
+    height: "100%",
+    display: "flex",
+    flexDirection:"column",
+    justifyContent: "flex-start",
+    alignItems: "center",
     color: '#FFFFFF', 
-    // top: "200px",
-    // left: "300px",
-    display: 'flex',
-    alignItems: 'center',
+    [theme.breakpoints.down('sm')]: {
+      alignItems: "flex-end",
+      justifyContent: "center",
+    },
    
 },
 
@@ -73,9 +76,9 @@ const Home = () =>{
           
         // }}>
         >
-            {/* <div  className={classes.paperContainer}>
+            <div  className={classes.paperContainer}>
             <h1>Welcome to Home Page</h1> 
-            </div> */}
+            </div>
         </Box>
         </Container>
       
