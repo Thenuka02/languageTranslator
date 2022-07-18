@@ -129,7 +129,7 @@ const SignIn = () =>{
                 fullWidth
                 id="name"
                 // label="Enter your username"
-                label={t('signIn.placeholderUser')}
+                placeholder={t('signIn.placeholderUser')}
                 name="userName"
                 autoComplete="name"
                 autoFocus
@@ -140,13 +140,12 @@ const SignIn = () =>{
                
               />
                
-               {/* Password */}
                {t('signIn.labelPw')}
               <TextField
                 margin="normal"
                 fullWidth
                 name="password"
-                label={t('signIn.placeholderPw')}
+                placeholder={t('signIn.placeholderPw')}
                 type="password"
                 id="password"
                 autoComplete="current-password"

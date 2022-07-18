@@ -138,7 +138,7 @@ const SignUp = () =>{
                 margin="normal"
                 fullWidth
                 id="fname"
-                label={t('signUp.placeholderFname')}
+                placeholder={t('signUp.placeholderFname')}
                 name="fname"
                 autoComplete="name"
                 autoFocus
@@ -154,7 +154,7 @@ const SignUp = () =>{
                 margin="normal"
                 fullWidth
                 id="Lname"
-                label={t('signUp.placeholderLname')}
+                placeholder={t('signUp.placeholderLname')}
                 name="Lname"
                 autoComplete="name"
                 autoFocus
@@ -170,7 +170,7 @@ const SignUp = () =>{
                 fullWidth
                 id="name"
                 // label="Enter your username"
-                label={t('signUp.placeholderUser')}
+                placeholder={t('signUp.placeholderUser')}
                 name="userName"
                 autoComplete="name"
                 autoFocus
@@ -187,7 +187,7 @@ const SignUp = () =>{
                 margin="normal"
                 fullWidth
                 name="password"
-                label={t('signIn.placeholderPw')}
+                placeholder={t('signIn.placeholderPw')}
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -203,7 +203,7 @@ const SignUp = () =>{
                      fullWidth
                      name="birthday"
                   id="date"
-                  label="Birthday"
+                  //placeholder="Birthday"
                   type="date"
                   defaultValue="2022-08-24"
      

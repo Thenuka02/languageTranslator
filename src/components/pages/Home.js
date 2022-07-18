@@ -3,6 +3,7 @@ import Header from "../layout/Header";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { makeStyles } from "@material-ui/core";
+import Navbar from "../layout/Navbar";
 
 const backgroundImage = require('../../assets/image_Bg.jpg');
 
@@ -26,23 +27,37 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
     minWidth: '100%',
     minHeight: "100%",
-    overflow: 'hidden',
+    //overflow: 'hidden',
     position: 'fixed',
           display: 'flex',
           alignItems: 'center',
           [theme.breakpoints.up('sm')]: {
+            // height: '80vh',
+            // minHeight: 500,
+            // maxHeight: 1300,
             height: '80vh',
-            minHeight: 500,
-            maxHeight: 1300,
+            minWidth: '100%',
+            minHeight: "100%",
           },
   },
   paperContainer: {
-    height: "100%",
+    // height: "100%",
+    // display: "flex",
+    // flexDirection:"column",
+    // justifyContent: "flex-start",
+    // alignItems: "center",
+    // color: '#FFFFFF', 
+   // height: "100%",
     display: "flex",
     flexDirection:"column",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center",
     color: '#FFFFFF', 
+    textAlign: "center",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     [theme.breakpoints.down('sm')]: {
       alignItems: "flex-end",
       justifyContent: "center",
@@ -56,26 +71,11 @@ const Home = () =>{
   const classes = useStyles();
     return (
         <div >
-          <div> <Header /></div>
-          {/* <h1>Welcome to Home Page</h1>  */}
+          
+         <Navbar />
           <Container  className={classes.imageBackground}> 
          
-        <Box 
-        
-        //  sx={{   
-        //   backgroundImage: `url(${backgroundImage})`,
-        //   height: '100vh' ,
-        //   backgroundRepeat: 'no-repeat',
-        //   backgroundSize: 'cover',
-        //   width:"1440px",
-        //   position: 'relative',
-        //   left: 0,
-        //   right: 0,
-        //   top: 0,
-        //   bottom: 0,
-          
-        // }}>
-        >
+        <Box>
             <div  className={classes.paperContainer}>
             <h1>Welcome to Home Page</h1> 
             </div>
