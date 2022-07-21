@@ -27,6 +27,7 @@ const theme = createTheme();
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
+    textDecoration: "none",
     [theme.breakpoints.down("sm")]: {
       minWidth: 32,
       paddingLeft: 8,
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   buttonText: {
-    underline: "none",
+    textDecoration: "none",
     [theme.breakpoints.down("sm")]: {
       display: "none"
     }
@@ -179,8 +180,9 @@ const SignIn = () =>{
               <Button
                 type="submit"
                 fullWidth
+                
                 variant="outlined"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2 , textDecoration:"none" }}
               >
                  {t('signIn.btnSignUp')} 
                 

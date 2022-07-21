@@ -12,17 +12,8 @@
     },
 
     "signUp": {
-        "labelUser": "User Name",
-        "placeholderUser": "Enter your username",
         "placeholderFname": "Enter your First name",
         "placeholderLname": "Enter your Last name",
-        "labelPw": "Password",
-        "placeholderPw": "Enter your password",
-        "labelRestPw": "Forgot password?",
-        "linkRestPw": "RESET",
-        "btnSingnIn" : "SIGN IN",
-        "labelAC": "Don't have an account ?",
-        "btnSignUp" : "CREATE AN ACCOUNT",
         "lblGender" : "Gender",
         "lblDOB" : "DOB",
         "lblFname": "First Name",
